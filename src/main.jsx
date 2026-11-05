@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   ArrowUpRight, Mail, MapPin, Github, Linkedin, Facebook, Instagram,
-  Monitor, Network, Code2, Palette, Camera, Globe, Wrench, MapPinned, Menu, X
+  Monitor, Network, Code2, Palette, Camera, Globe, Wrench, MapPinned, Menu, X, Sun, Moon
 } from 'lucide-react'
 import './styles.css'
 
@@ -25,7 +25,7 @@ const skills = [
   { title: 'Google Business Profile Management', detail: 'Managing business profile information, updates, posts and customer-facing details on Google.', Icon: MapPinned },
 ]
 
-function Header() {
+function Header({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const closeMenu = () => setMenuOpen(false)
   return <header className="header">
@@ -37,14 +37,30 @@ function Header() {
       <a href="#about" onClick={closeMenu}>About</a><a href="#skills" onClick={closeMenu}>What I do</a><a href="#experience" onClick={closeMenu}>Experience</a><a href="#contact" onClick={closeMenu}>Contact</a>
     </nav>
     <a className="nav-contact" href={`mailto:${email}`}>Let's talk <ArrowUpRight size={16}/></a>
+    <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>
+      {theme === 'dark' ? <Sun size={19}/> : <Moon size={19}/>}
+    </button>
     <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>
       {menuOpen ? <X size={24}/> : <Menu size={24}/>}
     </button>
   </header>
 }
 function App() {
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('portfolio-theme') || 'dark' }
+    catch { return 'dark' }
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#10120f' : '#f6f7f2')
+    try { localStorage.setItem('portfolio-theme', theme) } catch {}
+  }, [theme])
+
+  const toggleTheme = () => setTheme(current => current === 'dark' ? 'light' : 'dark')
+
   return <div className="site" id="home">
-    <Header />
+    <Header theme={theme} onToggleTheme={toggleTheme} />
     <main>
       <section className="hero container">
         <div className="hero-copy">

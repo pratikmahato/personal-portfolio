@@ -94,3 +94,88 @@ h1 span,h2 span{color:var(--lime)}
   .about-portrait{display:block;width:min(100%,360px);margin:0 0 28px;background:#080908;border:1px solid var(--line);border-radius:9px;overflow:hidden}
   .about-portrait img{display:block;width:100%;height:auto;object-fit:contain}
 }
+
+
+/* Accessible light theme and header theme switch */
+:root {
+  color-scheme: dark;
+  --bg:#10120f; --panel:#171a15; --text:#f4f5ef; --muted:#b4b9ad;
+  --lime:#c7f36b; --line:#30352c; --soft-text:#d5d9d0; --chip-text:#d4d9ce;
+  --card-bg:#171a15; --header-menu-bg:#171a15;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:#f6f7f2; --panel:#fff; --text:#20251c; --muted:#596151;
+  --lime:#54751e; --line:#dce2d3; --soft-text:#394132; --chip-text:#394132;
+  --card-bg:#fff; --header-menu-bg:#fff;
+}
+html, body { background:var(--bg); color:var(--text); }
+body, .site { transition:background-color .25s ease, color .25s ease; }
+.site { background:var(--bg); color:var(--text); }
+.header { border-color:var(--line); }
+.header nav a, .nav-contact { color:var(--soft-text); }
+.nav-contact, .email-link { color:var(--lime); }
+.eyebrow, .portrait-caption, .skill-number, .tools-line strong, .company, .location,
+.footer { color:var(--muted); }
+.intro, .about-copy p, .section-subtitle, .skill p, .experience-detail, .contact-copy { color:var(--muted); }
+.button-quiet { border-color:var(--line); color:var(--text); }
+.hero-socials { color:var(--muted); }
+.portrait-frame { background:var(--panel); border-color:var(--line); }
+.skills-section, .skill { background:var(--panel); }
+.skills-grid { background:var(--line); border-color:var(--line); }
+.tools-line span { color:var(--chip-text); border-color:var(--line); }
+.experience-card { background:var(--card-bg); border-color:var(--line); }
+.contact-socials a { border-color:var(--line); color:var(--soft-text); }
+.footer { border-color:var(--line); }
+.footer-brand { color:var(--text); }
+.header nav a:hover, .nav-contact:hover, .hero-socials a:hover { color:var(--lime); }
+.theme-toggle {
+  width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); border-radius:8px; background:transparent; color:var(--text);
+  cursor:pointer; transition:background-color .2s, border-color .2s, transform .2s;
+}
+.theme-toggle:hover { border-color:var(--lime); transform:translateY(-1px); }
+.theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible {
+  outline:2px solid var(--lime); outline-offset:3px;
+}
+@media(max-width:650px) {
+  .theme-toggle { margin-left:8px; flex:0 0 42px; }
+  .header nav { background:var(--header-menu-bg); border-color:var(--line); }
+  .header nav a { border-color:var(--line); color:var(--text); }
+}
+
+
+/* Light theme readability refinement: use black/dark text for normal copy. */
+:root[data-theme="light"] {
+  --text: #000000;
+  --muted: #292d26;
+  --soft-text: #111111;
+  --chip-text: #111111;
+  --lime: #456b12;
+}
+:root[data-theme="light"] body,
+:root[data-theme="light"] .site {
+  color: #000000;
+}
+:root[data-theme="light"] p,
+:root[data-theme="light"] li,
+:root[data-theme="light"] .intro,
+:root[data-theme="light"] .about-copy p,
+:root[data-theme="light"] .section-subtitle,
+:root[data-theme="light"] .skill p,
+:root[data-theme="light"] .experience-detail,
+:root[data-theme="light"] .contact-copy,
+:root[data-theme="light"] .company,
+:root[data-theme="light"] .location,
+:root[data-theme="light"] .portrait-caption,
+:root[data-theme="light"] .footer {
+  color: #292d26;
+}
+:root[data-theme="light"] h1,
+:root[data-theme="light"] h2,
+:root[data-theme="light"] h3,
+:root[data-theme="light"] strong,
+:root[data-theme="light"] .footer-brand,
+:root[data-theme="light"] .header nav a {
+  color: #000000;
+}
