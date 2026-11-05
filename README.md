@@ -34,3 +34,8 @@ The files in `public/` are the original user-uploaded assets copied without edit
 - `pratik-mahato-photo.jpg` — original uploaded portrait (JPEG)
 
 The site references these exact local files in the header, hero portrait, and footer.
+
+
+### Browser tab icon (favicon)
+
+The browser tab icon is configured in `index.html` to use `public/pratik-mahato-logo.png` directly. The original uploaded logo file is included unchanged. After deployment, hard-refresh the site or clear the browser cache if the old globe icon remains.
