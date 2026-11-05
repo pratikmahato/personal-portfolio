@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   ArrowUpRight, Mail, MapPin, Github, Linkedin, Facebook, Instagram,
-  Monitor, Network, Code2, Palette, Camera, Globe, Wrench
+  Monitor, Network, Code2, Palette, Camera, Globe, Wrench, MapPinned, Menu, X
 } from 'lucide-react'
 import './styles.css'
 
@@ -22,21 +22,26 @@ const skills = [
   { title: 'Graphic Design', detail: 'Visual design using Adobe Photoshop, Illustrator and Canva.', Icon: Palette },
   { title: 'Photography & Video', detail: 'Photography, videography and visual content creation.', Icon: Camera },
   { title: 'Digital Platforms', detail: 'Website management and digital solutions.', Icon: Globe },
+  { title: 'Google Business Profile Management', detail: 'Managing business profile information, updates, posts and customer-facing details on Google.', Icon: MapPinned },
 ]
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
   return <header className="header">
-    <a className="brand" href="#home" aria-label="Pratik Mahato home">
+    <a className="brand" href="#home" aria-label="Pratik Mahato home" onClick={closeMenu}>
       <img src="/pratik-mahato-logo.png" alt="Pratik Mahato logo" />
       <span>PRATIK MAHATO</span>
     </a>
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a><a href="#skills">What I do</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    <nav id="mobile-navigation" className={menuOpen ? 'mobile-open' : ''} aria-label="Main navigation">
+      <a href="#about" onClick={closeMenu}>About</a><a href="#skills" onClick={closeMenu}>What I do</a><a href="#experience" onClick={closeMenu}>Experience</a><a href="#contact" onClick={closeMenu}>Contact</a>
     </nav>
     <a className="nav-contact" href={`mailto:${email}`}>Let's talk <ArrowUpRight size={16}/></a>
+    <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>
+      {menuOpen ? <X size={24}/> : <Menu size={24}/>}
+    </button>
   </header>
 }
-
 function App() {
   return <div className="site" id="home">
     <Header />
@@ -65,6 +70,7 @@ function App() {
       <section className="about section container" id="about">
         <div className="section-heading"><p className="eyebrow">01 / ABOUT</p><h2>A little about me.</h2></div>
         <div className="about-copy">
+          <div className="about-portrait"><img src="/pratik-mahato-photo.jpg" alt="Portrait of Pratik Mahato" /></div>
           <p className="lead">I’m an IT Professional and Graphic Designer passionate about technology, creativity and digital innovation.</p>
           <p>Since joining Boston International College in April 2022, I have gained practical experience in IT operations, technical troubleshooting, digital platforms and creative design.</p>
           <p>My interests span IT support, networking, website management, web development, WordPress, graphic design, photography, videography and digital marketing. I enjoy learning new tools, exploring ideas and finding practical ways to connect technology with creativity.</p>

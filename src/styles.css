@@ -77,3 +77,20 @@ h1 span,h2 span{color:var(--lime)}
 .footer>a:last-child{color:var(--lime)}
 @media(max-width:850px){.header{width:calc(100% - 40px)}.header nav{gap:18px}.container{width:calc(100% - 40px)}.hero{gap:40px;padding-top:65px;min-height:auto}.portrait-frame{height:420px}.about,.experience{gap:42px}.skill{padding:24px}.focus-inner{gap:40px}}
 @media(max-width:650px){.header{height:72px}.brand{font-size:12px}.brand img{width:36px;height:36px}.header nav{display:none}.nav-contact{font-size:13px}.container{width:calc(100% - 36px)}.hero{grid-template-columns:1fr;gap:38px;padding-top:62px;padding-bottom:70px}.hero-copy{order:1}.portrait-wrap{order:0;justify-self:start;max-width:100%}.portrait-frame{height:390px;max-width:340px}.hero h1{font-size:clamp(42px,11vw,58px)}.intro{font-size:17px}.section{padding-top:68px;padding-bottom:68px}.about,.experience{grid-template-columns:1fr;gap:30px}.about-copy .lead{font-size:21px}.about-copy p{font-size:16px}.skills-grid{grid-template-columns:1fr}.skill{min-height:auto;padding:25px}.skill-top{margin-bottom:20px}.experience-card{grid-template-columns:1fr;gap:22px;padding:24px}.focus-inner{grid-template-columns:1fr;gap:24px}.focus-inner>p{font-size:17px}.contact{padding-top:75px;padding-bottom:75px}.contact-copy{font-size:16px}.footer{padding:22px 0;flex-wrap:wrap}.footer span{order:3;width:100%}}
+
+
+/* Mobile navigation and portrait placement */
+.menu-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:7px;background:transparent;color:var(--text);cursor:pointer}
+.about-portrait{display:none}
+@media(max-width:650px){
+  .header{position:relative;z-index:20}
+  .header nav{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;flex-direction:column;gap:0;padding:8px 16px;background:#171a15;border:1px solid var(--line);border-radius:0 0 10px 10px;box-shadow:0 16px 30px #0008}
+  .header nav.mobile-open{display:flex}
+  .header nav a{display:block;padding:15px 8px;font-size:16px;border-bottom:1px solid #30352c}
+  .header nav a:last-child{border-bottom:0}
+  .menu-toggle{display:inline-flex;margin-left:8px}
+  .nav-contact{margin-left:auto}
+  .hero .portrait-wrap{display:none}
+  .about-portrait{display:block;width:min(100%,360px);margin:0 0 28px;background:#080908;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .about-portrait img{display:block;width:100%;height:auto;object-fit:contain}
+}
