@@ -1,62 +1,36 @@
-# Pratik Mahato — Portfolio Website
+# Pratik Mahato — Portfolio
 
-A responsive personal portfolio built with React, Vite and Tailwind CSS, using a premium dark visual style with lime accents.
-
-## Portfolio content
-- Hero headline: “Building digital experiences through technology and creativity.”
-- About, skills, professional experience, areas of focus, social profiles, continuous learning and contact sections
-- Technical skills and creative tools supplied by Pratik
-- Experience at Boston International College from April 2022 to present
-- Contact email: `contact@pratikmahato.com.np`
-- GitHub, LinkedIn, Facebook and Instagram links
-- No CV download link and no invented project case studies or certifications
-- Temporary PM monogram, ready to be replaced with a custom logo
-- Contact form opens the visitor's email application using `mailto:`; it is not a server-backed form
+A clean, responsive React + Vite portfolio with a simple dark interface and lime accent.
 
 ## Run locally
-Requires Node.js 18+.
+1. Install Node.js (LTS).
+2. Open this folder in a terminal.
+3. Run `npm install`
+4. Run `npm run dev` to preview locally.
+5. Run `npm run build` to create the production site in `dist/`.
 
-```bash
-npm install
-npm run dev
-```
-
-Open the local URL printed by Vite.
-
-## Build for production
-
-```bash
-npm run build
-npm run preview
-```
-
-The production website is generated in `dist/`.
-
-## Replace the temporary logo later
-1. Create a `public` folder in the project root if it does not exist.
-2. Add your logo file as `public/logo.svg` (SVG recommended; transparent PNG also works).
-3. In `src/main.jsx`, find the `Brand` component and replace the temporary `PM` monogram with:
-
-```jsx
-<img src="/logo.svg" alt="Pratik Mahato" className="site-logo" />
-```
-
-4. Add suitable `.site-logo` sizing in `src/styles.css` (for example `height: 38px; width: auto; object-fit: contain;`).
-
-The header and footer both use the same `Brand` component, so the logo will update in both places.
-
-## Add a profile photo later
-The current hero uses a custom abstract graphic rather than a stock portrait. When you provide a professional photo, it can be added as a separate visual without changing the page structure.
-
-## Projects and credentials
-The “Areas of Focus” section describes supplied skills and interests, not fabricated client projects. Replace or supplement it with specific project case studies only when you have approved project names, descriptions and links. No certifications are listed because none have been supplied yet; the continuous-learning section keeps this area meaningful without claiming credentials.
-
-## Deploy with GitHub and Cloudflare Pages
-Connect the GitHub repository to Cloudflare Pages using:
-- Framework preset: `Vite`
-- Production branch: `main`
+## Cloudflare Pages
+Connect this GitHub repository to Cloudflare Pages:
+- Framework preset: Vite
 - Build command: `npm run build`
 - Build output directory: `dist`
-- Root directory: `/`
+- Production branch: `main`
 
-Deploy the site and test the generated `pages.dev` address before connecting the custom domain. Preserve existing MX, SPF, DKIM, DMARC and mail-related DNS records when connecting the domain.
+## Personal images
+Your supplied logo and portrait are included in `public/`:
+- `public/pratik-mahato-logo.png`
+- `public/pratik-mahato-photo.jpg`
+
+To replace either later, keep the same filename or update the image path in `src/main.jsx`.
+
+## Content notes
+The work section is presented as areas of focus, not invented client projects. No certifications or CV are claimed. Confirm contact details and profile links before publishing.
+
+## Original uploaded assets
+
+The files in `public/` are the original user-uploaded assets copied without editing, filters, cropping, recoloring, or AI replacement:
+
+- `pratik-mahato-logo.png` — original uploaded logo (PNG)
+- `pratik-mahato-photo.jpg` — original uploaded portrait (JPEG)
+
+The site references these exact local files in the header, hero portrait, and footer.
