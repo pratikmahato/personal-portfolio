@@ -39,3 +39,24 @@ The site references these exact local files in the header, hero portrait, and fo
 ### Browser tab icon (favicon)
 
 The browser tab icon is configured in `index.html` to use `public/pratik-mahato-logo.png` directly. The original uploaded logo file is included unchanged. After deployment, hard-refresh the site or clear the browser cache if the old globe icon remains.
+
+
+## SEO and security additions
+
+The `public/` folder contains files that Vite copies to the deployed site root:
+- `robots.txt` and `sitemap.xml`
+- `_headers` for Cloudflare Pages security headers and asset caching
+- `404.html` for a branded not-found page
+
+The homepage includes a canonical URL, title/description, Open Graph and Twitter metadata, and Person JSON-LD structured data. It also includes a no-JavaScript content fallback. This remains a client-rendered React/Vite site, not full server-side rendering or static prerendering; Google can render JavaScript, but a prerender/SSR step can further improve support for crawlers that do not execute JavaScript.
+
+## After deployment: verify
+
+1. Open `https://pratikmahato.com.np/` and confirm the homepage loads.
+2. Open `/robots.txt` and `/sitemap.xml` directly.
+3. Visit a made-up path such as `/this-page-should-not-exist` and confirm the branded 404 appears.
+4. Check response headers in browser DevTools → Network → select the document → Headers.
+5. Check canonical metadata and structured data with Google Search Console URL Inspection and Rich Results Test.
+6. Check important assets and links; a successful deployment does not itself prove every URL returns HTTP 200.
+
+The Content Security Policy permits same-origin scripts and images, plus Google Fonts for styles/fonts. If future analytics, embedded media, or third-party services are added, update the policy only for the exact trusted origin required.
