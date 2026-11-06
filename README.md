@@ -60,3 +60,12 @@ The homepage includes a canonical URL, title/description, Open Graph and Twitter
 6. Check important assets and links; a successful deployment does not itself prove every URL returns HTTP 200.
 
 The Content Security Policy permits same-origin scripts and images, plus Google Fonts for styles/fonts. If future analytics, embedded media, or third-party services are added, update the policy only for the exact trusted origin required.
+
+
+## Latest update: social links, location and 404 handling
+
+- Updated Facebook and Instagram profile links in the React UI and Person structured data.
+- Updated the displayed location to Bharatpur, Chitwan, Nepal.
+- Added `public/_redirects` with `/* /404.html 404` so Cloudflare Pages serves the branded 404 page with an HTTP 404 status for unknown paths, rather than displaying the React homepage.
+
+After pushing to GitHub, wait for the Cloudflare Pages deployment to finish. Test a deliberately invalid path such as `https://pratikmahato.com.np/this-page-does-not-exist`. It should show the custom 404 page and return HTTP 404. Normal homepage and section-anchor navigation should continue to work.

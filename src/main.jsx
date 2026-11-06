@@ -11,8 +11,8 @@ const email = 'contact@pratikmahato.com.np'
 const socials = [
   { name: 'GitHub', href: 'https://github.com/pratikmahato', Icon: Github },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/pratikmahato/', Icon: Linkedin },
-  { name: 'Facebook', href: 'https://www.facebook.com/share/1ECW53NCcv/', Icon: Facebook },
-  { name: 'Instagram', href: 'https://www.instagram.com/pratik_2059/', Icon: Instagram },
+  { name: 'Facebook', href: 'https://www.facebook.com/share/1GmAtbDtRn/', Icon: Facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/me.pratikmahato?srtk=azhxZm96Y2l5eWI=', Icon: Instagram },
 ]
 
 const skills = [
@@ -110,7 +110,7 @@ function App() {
       <section className="section container experience" id="experience">
         <div className="section-heading"><p className="eyebrow">03 / EXPERIENCE</p><h2>Where I work.</h2></div>
         <article className="experience-card">
-          <div><p className="eyebrow lime-text">APRIL 2022 — PRESENT</p><h3>Assistant IT Officer</h3><p className="company">Boston International College · Chitwan, Nepal</p></div>
+          <div><p className="eyebrow lime-text">APRIL 2022 — PRESENT</p><h3>Assistant IT Officer</h3><p className="company">Boston International College · Bharatpur, Chitwan, Nepal</p></div>
           <p className="experience-detail">Working across IT support, technical troubleshooting, IT operations, digital platforms and creative technology activities.</p>
         </article>
       </section>
@@ -127,7 +127,7 @@ function App() {
         <h2>Have something in mind?<br/><span>Let's connect.</span></h2>
         <p className="contact-copy">For professional opportunities, creative collaborations or technology-related conversations, feel free to reach out.</p>
         <a className="email-link" href={`mailto:${email}`}><Mail size={20}/>{email}<ArrowUpRight size={18}/></a>
-        <p className="location"><MapPin size={16}/> Chitwan, Nepal</p>
+        <p className="location"><MapPin size={16}/> Bharatpur, Chitwan, Nepal</p>
         <div className="contact-socials">{socials.map(({name, href, Icon}) => <a key={name} href={href} target="_blank" rel="noreferrer"><Icon size={18}/>{name}<ArrowUpRight size={14}/></a>)}</div>
       </section>
     </main>
